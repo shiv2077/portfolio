@@ -457,41 +457,49 @@
 
         <section class="clients">
               <h3 class="h3 testimonials-title">Current and past affiliations</h3>
-              <h6 class="h6 service-item-title">The organisations, institutes, and programs I am currently working for or have worked in the past.</h6> 
+              <p class="clients-subtitle">The organisations, institutes, and programs I am currently working for or have worked in the past.</p> 
               
-              <ul class="clients-list has-scrollbar">
-                <div>
-                  <img src="./assets/images/images.jpeg" alt="client logo">
-                  <h6 class="h6 service-item-title">Active Inference Institute</h6> <br><span class="role"> Role: Research Intern </span>
-                </div>
-                <div>
-                  <img src="./assets/images/hexadynamics .jpeg" alt="client logo">
-                  <h6 class="h6 service-item-title">Hexadynamics</h6> <br><span class="role"> Role: Co-Founder and VP </span>
-                </div>
-                <div>
-                  <img src="./assets/images/6.jpg" alt="client logo">
-                  <h6 class="h6 service-item-title">Google Developer Groups</h6> <br><span class="role"> Role: Corporate and Public Relations Team Member </span>
-                </div>
-                <div>
-                  <img src="./assets/images/mah.jpeg" alt="client logo">
-                  <h6 class="h6 service-item-title">Mahindra Research Valley</h6> <br><span class="role"> Role: Research Intern </span>
-                </div>
-                <div>
-                  <img src="./assets/images/srmist-logo.png" alt="client logo">
-                  <h6 class="h6 service-item-title">National Instrumentation Lab</h6> <br><span class="role"> Role: Research Intern </span>
-                </div>
-                <div>
-                  <img src="./assets/images/microsoft student learn .jpeg" alt="client logo">
-                  <h6 class="h6 service-item-title">Microsoft Learn Student Ambassadors SRM</h6> <br><span class="role"> Role: Corporate Associate </span>
-                </div>
-                <div>
-                  <img src="./assets/images/alexa developers srm .png" alt="client logo">
-                  <h6 class="h6 service-item-title">Alexa Developers SRM</h6> <br><span class="role"> Role: Business Team Associate </span>
-                </div>
-                <div>
-                  <img src="./assets/images/gssoc.jpeg" alt="client logo">
-                  <h6 class="h6 service-item-title">GirlScript Summer of Code</h6> <br><span class="role"> Role: Contributor </span>
-                </div>
+              <ul class="clients-list">
+                <li class="clients-item">
+                  <img src="./assets/images/images.jpeg" alt="Active Inference Institute logo" width="56" height="56" loading="lazy">
+                  <h4 class="clients-name">Active Inference Institute</h4>
+                  <p class="role">Research Intern</p>
+                </li>
+                <li class="clients-item">
+                  <img src="./assets/images/hexadynamics .jpeg" alt="Hexadynamics logo" width="56" height="56" loading="lazy">
+                  <h4 class="clients-name">Hexadynamics</h4>
+                  <p class="role">Co-Founder and VP</p>
+                </li>
+                <li class="clients-item">
+                  <img src="./assets/images/6.jpg" alt="Google Developer Groups logo" width="56" height="56" loading="lazy">
+                  <h4 class="clients-name">Google Developer Groups</h4>
+                  <p class="role">Corporate and Public Relations Team Member</p>
+                </li>
+                <li class="clients-item">
+                  <img src="./assets/images/mah.jpeg" alt="Mahindra Research Valley logo" width="56" height="56" loading="lazy">
+                  <h4 class="clients-name">Mahindra Research Valley</h4>
+                  <p class="role">Research Intern</p>
+                </li>
+                <li class="clients-item">
+                  <img src="./assets/images/srmist-logo.png" alt="National Instrumentation Lab logo" width="56" height="56" loading="lazy">
+                  <h4 class="clients-name">National Instrumentation Lab</h4>
+                  <p class="role">Research Intern</p>
+                </li>
+                <li class="clients-item">
+                  <img src="./assets/images/microsoft student learn .jpeg" alt="Microsoft Learn Student Ambassadors SRM logo" width="56" height="56" loading="lazy">
+                  <h4 class="clients-name">Microsoft Learn Student Ambassadors SRM</h4>
+                  <p class="role">Corporate Associate</p>
+                </li>
+                <li class="clients-item">
+                  <img src="./assets/images/alexa developers srm .png" alt="Alexa Developers SRM logo" width="56" height="56" loading="lazy">
+                  <h4 class="clients-name">Alexa Developers SRM</h4>
+                  <p class="role">Business Team Associate</p>
+                </li>
+                <li class="clients-item">
+                  <img src="./assets/images/gssoc.jpeg" alt="GirlScript Summer of Code logo" width="56" height="56" loading="lazy">
+                  <h4 class="clients-name">GirlScript Summer of Code</h4>
+                  <p class="role">Contributor</p>
+                </li>
           </ul>
 
         </section>
@@ -1330,7 +1338,7 @@
           <h3 class="h3 form-title">Contact Form</h3>
           
 
-          <form action="https://formspree.io/f/xgejyvgb" method="POST">
+          <form action="https://formspree.io/f/xgejyvgb" method="POST" class="form" data-form>
             <div class="input-wrapper">
               <input type="text" name="fullname" class="form-input" placeholder="Your Full name" required data-form-input>
 
@@ -1339,10 +1347,12 @@
 
             <textarea name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
 
-            <button class="form-btn" type="submit"  data-form-btn>
+            <button class="form-btn" type="submit" disabled data-form-btn>
               <ion-icon name="paper-plane"></ion-icon>
               <span>Send Message</span>
             </button>
+
+            <p class="form-status" role="status" data-form-status></p>
           </form>
 
         

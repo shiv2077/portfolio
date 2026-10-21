@@ -134,6 +134,29 @@ for (let i = 0; i < formInputs.length; i++) {
   });
 }
 
+// submit via fetch so the visitor stays on the page
+const formStatus = document.querySelector("[data-form-status]");
+
+form.addEventListener("submit", async function (event) {
+  event.preventDefault();
+  formBtn.setAttribute("disabled", "");
+  formStatus.innerText = "Sending...";
+
+  try {
+    const response = await fetch(form.action, {
+      method: "POST",
+      body: new FormData(form),
+      headers: { "Accept": "application/json" }
+    });
+    if (!response.ok) throw new Error(response.status);
+    form.reset();
+    formStatus.innerText = "Thanks! Your message has been sent.";
+  } catch (error) {
+    formBtn.removeAttribute("disabled");
+    formStatus.innerText = "Something went wrong. Please email me directly at shivnarayan4077@gmail.com.";
+  }
+});
+
 
 
 // page navigation variables
