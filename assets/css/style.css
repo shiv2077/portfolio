@@ -615,7 +615,7 @@ main {
 .navbar-link:hover,
 .navbar-link:focus { color: #ffffff; }
 
-.navbar-link.active { color: var(--orange-yellow-crayola); }
+.navbar-link.active { color: var(--white-2); }
 
 
 
@@ -2615,3 +2615,72 @@ article:hover {
 .glass-card p { color: var(--light-gray-70); }
 
 .glass-card li { color: var(--light-gray); }
+
+
+/*-----------------------------------*\
+  #MOTION
+\*-----------------------------------*/
+
+:root {
+  --ease-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --stagger: 45ms;
+}
+
+/* page switch: fade and rise; cards follow one after another */
+article.active { animation: page-in 350ms var(--ease-out) backwards; }
+
+article.active .service-item,
+article.active .content-card,
+article.active .clients-item,
+article.active .glass-card,
+.featured-project-card.active {
+  animation: card-in 400ms var(--ease-out) backwards;
+  animation-delay: calc(var(--i, 0) * var(--stagger));
+}
+
+@keyframes page-in {
+  from { opacity: 0; transform: translateY(12px); }
+}
+
+@keyframes card-in {
+  from { opacity: 0; transform: translateY(10px); }
+}
+
+/* sliding glass pill under the active nav tab */
+.navbar-list { position: relative; }
+
+.navbar-link {
+  position: relative;
+  z-index: 1;
+}
+
+.navbar-indicator {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  height: 34px;
+  width: var(--w, 0);
+  padding: 0 10px;
+  margin-left: -10px;
+  box-sizing: content-box;
+  transform: translate(var(--x, 0), -50%);
+  background: hsla(0, 0%, 100%, 0.08);
+  border: 1px solid hsla(0, 0%, 100%, 0.1);
+  border-radius: 999px;
+  box-shadow: inset 0 1px 0 hsla(0, 0%, 100%, 0.12);
+  opacity: 0;
+  transition: transform 300ms var(--ease-out), width 300ms var(--ease-out), opacity 200ms;
+}
+
+.navbar-indicator.is-ready { opacity: 1; }
+
+@media (prefers-reduced-motion: reduce) {
+  article.active,
+  article.active .service-item,
+  article.active .content-card,
+  article.active .clients-item,
+  article.active .glass-card,
+  .featured-project-card.active { animation: none; }
+
+  .navbar-indicator { transition: none; }
+}

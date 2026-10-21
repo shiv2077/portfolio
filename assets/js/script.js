@@ -178,5 +178,41 @@ for (let i = 0; i < navigationLinks.length; i++) {
       }
     }
 
+    moveIndicator(this);
+
   });
+}
+
+
+
+// sliding pill under the active nav tab
+const navIndicator = document.querySelector("[data-nav-indicator]");
+
+const moveIndicator = function (btn) {
+  navIndicator.style.setProperty("--w", btn.offsetWidth + "px");
+  navIndicator.style.setProperty("--x", btn.offsetLeft + "px");
+}
+
+const moveToActive = function () {
+  moveIndicator(document.querySelector("[data-nav-link].active"));
+}
+
+// link sizes change when Poppins loads and across breakpoints
+const navObserver = new ResizeObserver(function () {
+  moveToActive();
+  navIndicator.classList.add("is-ready");
+});
+for (let i = 0; i < navigationLinks.length; i++) navObserver.observe(navigationLinks[i]);
+window.addEventListener("resize", moveToActive);
+
+
+
+// stagger index for cards animating in on each page
+const maxStagger = 8;
+
+for (let i = 0; i < pages.length; i++) {
+  const cards = pages[i].querySelectorAll(".service-item, .content-card, .clients-item, .glass-card, .featured-project-card");
+  for (let j = 0; j < cards.length; j++) {
+    cards[j].style.setProperty("--i", Math.min(j, maxStagger));
+  }
 }
